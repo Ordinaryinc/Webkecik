@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kisah Badang - Wira Melayu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Lora', serif;
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #F5F0E1;
             line-height: 1.6;
+            color: #1A3C34;
         }
 
         /* Scroll Progress Bar */
@@ -23,7 +25,7 @@
             top: 0;
             left: 0;
             height: 5px;
-            background-color: #e74c3c;
+            background-color: #D4A017;
             width: 0;
             z-index: 2000;
             transition: width 0.3s ease;
@@ -31,7 +33,7 @@
 
         /* Navigation */
         nav {
-            background-color: #2c3e50;
+            background-color: #1A3C34;
             position: fixed;
             width: 100%;
             top: 5px;
@@ -51,27 +53,28 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #D4A017;
             text-decoration: none;
             font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
-            color: #e74c3c;
+            color: #8B0000;
             transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516321165247-4aa89a48d322') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618221710640-c0eaaa2adb6d') center/cover;
             background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: #D4A017;
             margin-top: 60px;
         }
 
@@ -85,6 +88,7 @@
             font-size: 3.5rem;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Playfair Display', serif;
         }
 
         .hero p {
@@ -95,15 +99,16 @@
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
-            background-color: #e74c3c;
-            color: white;
+            background-color: #8B0000;
+            color: #D4A017;
             text-decoration: none;
             border-radius: 5px;
+            font-family: 'Playfair Display', serif;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .cta-button:hover {
-            background-color: #c0392b;
+            background-color: #6B0000;
             transform: translateY(-5px);
         }
 
@@ -112,13 +117,17 @@
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            background: url('https://www.toptal.com/designers/subtlepatterns/patterns/batik.png') repeat;
+            background-size: 200px;
+            border-radius: 10px;
         }
 
         section h2 {
             font-size: 2.5rem;
-            color: #2c3e50;
+            color: #1A3C34;
             margin-bottom: 2rem;
             text-align: center;
+            font-family: 'Playfair Display', serif;
             animation: fadeIn 1s ease-out;
         }
 
@@ -130,7 +139,7 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -140,6 +149,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 2px solid #D4A017;
         }
 
         .card:hover {
@@ -147,9 +157,23 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
-        .card h3 {
-            color: #e74c3c;
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
             margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card h3 {
+            color: #8B0000;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
             animation: fadeInText 1s ease-out 0.3s both;
         }
 
@@ -171,7 +195,7 @@
             transform: translateX(-50%);
             width: 4px;
             height: 100%;
-            background-color: #2c3e50;
+            background-color: #1A3C34;
         }
 
         .timeline-item {
@@ -186,28 +210,42 @@
         }
 
         .timeline-content {
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             padding: 1.5rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             width: 45%;
             transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 2px solid #D4A017;
         }
 
         .timeline-content:hover {
             transform: scale(1.05);
-            background-color: #e74c3c;
-            color: white;
+            background-color: #8B0000;
+            color: #D4A017;
         }
 
         .timeline-content:hover h3 {
-            color: white;
+            color: #D4A017;
+        }
+
+        .timeline-content img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover img {
+            transform: scale(1.1);
         }
 
         .timeline-dot {
             width: 20px;
             height: 20px;
-            background-color: #e74c3c;
+            background-color: #8B0000;
             border-radius: 50%;
             position: absolute;
             left: 50%;
@@ -217,11 +255,12 @@
 
         /* Footer */
         footer {
-            background-color: #2c3e50;
-            color: white;
+            background-color: #1A3C34;
+            color: #D4A017;
             text-align: center;
             padding: 2rem;
             margin-top: 2rem;
+            font-family: 'Playfair Display', serif;
         }
 
         /* Animations */
@@ -302,7 +341,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Kisah Badang: Wira Melayu yang Gagah Perkasa</h1>
-            <p>Ikuti perjalanan epik Badang, seorang pahlawan legenda Melayu yang memiliki kekuatan luar biasa.</p>
+            <p>Ikuti perjalanan epik Badang, seorang pahlawan legenda Melayu yang memiliki kekuatan luar biasa dan keberanian yang tiada tara.</p>
             <a href="#pengenalan" class="cta-button">Mulakan Pengembaraan</a>
         </div>
     </section>
@@ -312,12 +351,14 @@
         <h2>Pengenalan</h2>
         <div class="content">
             <div class="card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Ilustrasi Badang sebagai pahlawan">
                 <h3>Siapa Badang?</h3>
-                <p>Badang adalah seorang wira legenda Melayu yang terkenal dengan kekuatan fizikalnya yang luar biasa. Kisahnya menjadi inspirasi kepada ramai orang.</p>
+                <p>Badang ialah wira legenda Melayu yang terkenal dengan kekuatan fizikalnya yang luar biasa. Kisahnya, yang dipenuhi dengan keberanian dan keajaiban, telah diwarisi turun-temurun sebagai simbol kegagahan rakyat Melayu.</p>
             </div>
             <div class="card">
+                <img src="https://images.unsplash.com/photo-1512101176959-c557f3516787" alt="Kampung Melayu kuno">
                 <h3>Asal-usul</h3>
-                <p>Badang berasal dari sebuah kampung kecil di Tanah Melayu. Dia pada mulanya hanyalah seorang hamba sebelum mendapat kekuatan ajaib.</p>
+                <p>Badang dilahirkan sebagai anak petani miskin di sebuah kampung kecil di Tanah Melayu, mungkin di wilayah Singapura kuno. Pada awalnya, dia hanyalah seorang hamba yang bekerja keras menangkap ikan untuk tuannya.</p>
             </div>
         </div>
     </section>
@@ -327,12 +368,14 @@
         <h2>Latar Belakang</h2>
         <div class="content">
             <div class="card">
+                <img src="https://images.unsplash.com/photo-1525186402429-b48d6db50451" alt="Pelabuhan Temasek kuno">
                 <h3>Zaman Badang</h3>
-                <p>Badang hidup pada zaman kerajaan-kerajaan Melayu klasik, di mana kekuatan dan keberanian sangat dihargai.</p>
+                <p>Badang hidup pada zaman kerajaan-kerajaan Melayu klasik, kemungkinan besar semasa pemerintahan kerajaan Temasek (Singapura kuno). Era ini kaya dengan budaya maritim dan perdagangan, di mana kekuatan dan keberanian sangat dihargai.</p>
             </div>
             <div class="card">
-                <h3>Legenda</h3>
-                <p>Menurut cerita, Badang mendapat kekuatannya setelah memakan muntah seorang jin yang berterima kasih kepadanya.</p>
+                <img src="https://images.unsplash.com/photo-1560160832-1444f6c811a1" alt="Jin dalam legenda Melayu">
+                <h3>Kekuatan Ajaib</h3>
+                <p>Menurut legenda, Badang mendapat kekuatannya selepas menolong seorang jin yang terperangkap di dalam jaring ikannya. Sebagai balasan, jin itu memberikan kekuatan luar biasa kepadanya dengan syarat Badang memakan muntah jin tersebut.</p>
             </div>
         </div>
     </section>
@@ -344,22 +387,33 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <h3>Cabaran</h3>
-                    <p>Badang menghadapi pelbagai cabaran, termasuk pertarungan dengan pahlawan-pahlawan dari kerajaan lain.</p>
+                    <img src="https://images.unsplash.com/photo-1543320485-d0d5a49c46dd" alt="Badang sebagai hamba">
+                    <h3>Kehidupan Awal dan Cabaran</h3>
+                    <p>Sebagai hamba, Badang menjalani kehidupan yang sukar, bekerja keras untuk tuannya. Namun, pertemuan dengan jin mengubah nasibnya. Dengan kekuatan barunya, Badang mula menghadapi pelbagai cabaran, termasuk melawan pahlawan-pahlawan dari kerajaan lain.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <h3>Pencapaian</h3>
-                    <p>Beliau terkenal dengan kebolehannya mengangkat batu besar dan mengalahkan lawan-lawannya dengan mudah.</p>
+                    <img src="https://images.unsplash.com/photo-1514539079130-25950c84af21" alt="Batu Badang">
+                    <h3>Pertarungan dengan Wira India</h3>
+                    <p>Salah satu kisah terkenal ialah pertarungan Badang dengan seorang pahlawan dari India yang dihantar oleh Raja Keling. Badang berjaya mengalahkan lawannya dengan mengangkat batu besar, yang kini dikenali sebagai "Batu Badang" di Singapura.</p>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <h3>Warisan</h3>
-                    <p>Kisah Badang terus diceritakan sehingga kini, menjadi simbol kekuatan dan keberanian rakyat Melayu.</p>
+                    <img src="https://images.unsplash.com/photo-1507646227500-4d389b0012be" alt="Istana Temasek">
+                    <h3>Pelayanan kepada Raja</h3>
+                    <p>Kehebatan Badang menarik perhatian Raja Temasek, yang melantiknya sebagai hulubalang istana. Badang setia melindungi kerajaan dan menjadi simbol kekuatan serta keberanian.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <img src="https://images.unsplash.com/photo-1578637387939-43c525a6ae61" alt="Warisan Badang">
+                    <h3>Warisan Abadi</h3>
+                    <p>Kisah Badang kekal hidup dalam tradisi lisan dan catatan Sejarah Melayu (Sulalatus Salatin). Batu Badang, yang dikatakan masih wujud sehingga abad ke-19 di Singapura, menjadi lambang kehebatannya.</p>
                 </div>
             </div>
         </div>
@@ -370,83 +424,41 @@
         <h2>Kesimpulan</h2>
         <div class="content">
             <div class="card">
-                <h3>Pelajaran</h3>
-                <p>Kisah Badang mengajar kita tentang pentingnya keberanian, ketabahan, dan menggunakan kekuatan untuk kebaikan.</p>
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f" alt="Semangat keberanian">
+                <h3>Pelajaran dari Badang</h3>
+                <p>Kisah Badang mengajar kita tentang keberanian, ketabahan, dan pentingnya menggunakan kekuatan untuk kebaikan. Walaupun berasal dari latar belakang sederhana, Badang membuktikan bahawa dengan semangat, seseorang boleh mencapai kehebatan.</p>
             </div>
             <div class="card">
-                <h3>Inspirasi</h3>
-                <p>Badang kekal sebagai inspirasi kepada generasi baharu untuk menghadapi cabaran hidup dengan penuh semangat.</p>
+                <img src="https://images.unsplash.com/photo-1507038732509-8b1d0bd1c0d2" alt="Budaya Melayu">
+                <h3>Inspirasi Moden</h3>
+                <p>Badang kekal relevan sebagai inspirasi kepada generasi baharu untuk menghadapi cabaran hidup dengan semangat dan memelihara warisan budaya Melayu yang kaya.</p>
             </div>
-        </div>
-    </section>
+        </ngerikan imej yang sesuai untuk digantikan:
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Kisah Badang. Hak cipta terpelihara.</p>
-    </footer>
+- **Hero Section**: Gantikan dengan ilustrasi pahlawan Melayu yang gagah memegang tombak atau mengangkat batu besar, mencerminkan kekuatan Badang.
+- **Pengenalan**:
+  - **Siapa Badang?**: Ilustrasi Badang sebagai wira gagah perkasa, mungkin dengan pakaian tradisional Melayu seperti tanjak dan kain samping.
+  - **Asal-usul**: Pemandangan kampung Melayu kuno dengan rumah panggung dan sungai, mencerminkan latar tempat kelahiran Badang.
+- **Latar Belakang**:
+  - **Zaman Badang**: Gambar pelabuhan Temasek kuno dengan kapal dagang dan suasana maritim.
+  - **Kekuatan Ajaib**: Ilustrasi jin mistik atau pemandangan Badang bertemu jin di tepi sungai.
+- **Perjalanan**:
+  - **Kehidupan Awal**: Gambar Badang sebagai hamba menangkap ikan dengan jaring.
+  - **Pertarungan dengan Wira India**: Ilustrasi Badang mengangkat Batu Badang dengan pahlawan India di latar belakang.
+  - **Pelayanan kepada Raja**: Gambar istana Melayu kuno dengan Badang sebagai hulubalang.
+  - **Warisan Abadi**: Gambar Batu Badang atau ilustrasi tradisi lisan Melayu.
+- **Kesimpulan**:
+  - **Pelajaran dari Badang**: Gambar simbolik keberanian, seperti pedang dan perisai Melayu.
+  - **Inspirasi Moden**: Ilustrasi budaya Melayu moden, seperti persembahan silat atau seni batik.
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
+**Sumber Imej**:
+- Cari imej di platform seperti Shutterstock, Adobe Stock, atau galeri seni tempatan yang menawarkan ilustrasi budaya Melayu.
+- Alternatifnya, anda boleh mengupah artis untuk mencipta ilustrasi khusus berkaitan Badang.
+- Simpan imej dalam folder projek (cth., `images/badang-hero.jpg`) dan kemas kini URL dalam kod HTML (cth., `<img src="images/badang-hero.jpg" alt="Badang">`).
 
-        // Scroll Progress Bar
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById('progress-bar').style.width = scrollPercent + '%';
-        });
+### Penyesuaian Lanjutan (Pilihan)
+- **Audio Naratif**: Tambah fail audio pendek yang menceritakan kisah Badang dalam bahasa Melayu, dengan butang main/pause di bahagian hero.
+- **Kesan Silat**: Tambah animasi gerakan silat pada imej Badang apabila dihover, menggunakan CSS atau JavaScript.
+- **Interaktif Lain**: Tambah kuiz ringkas tentang kisah Badang di bahagian Kesimpulan untuk meningkatkan penglibatan pengguna.
 
-        // Section Animation
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.2
-        });
-
-        sections.forEach(section => {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(50px)';
-            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(section);
-        });
-
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero');
-            const scrollPosition = window.scrollY;
-            hero.style.backgroundPositionY = -(scrollPosition * 0.5) + 'px';
-        });
-
-        // Timeline Animation
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        timelineItems.forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                const dot = item.querySelector('.timeline-dot');
-                dot.style.transform = 'translateX(-50%) scale(1.5)';
-                dot.style.backgroundColor = '#c0392b';
-            });
-            item.addEventListener('mouseleave', () => {
-                const dot = item.querySelector('.timeline-dot');
-                dot.style.transform = 'translateX(-50%) scale(1)';
-                dot.style.backgroundColor = '#e74c3c';
-            });
-        });
-    </script>
-</body>
-</html>
+Jika anda mempunyai imej sebenar atau memerlukan bantuan untuk menambah ciri seperti audio atau kuiz, sila beritahu saya!
