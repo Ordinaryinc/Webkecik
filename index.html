@@ -17,12 +17,24 @@
             line-height: 1.6;
         }
 
+        /* Scroll Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background-color: #e74c3c;
+            width: 0;
+            z-index: 2000;
+            transition: width 0.3s ease;
+        }
+
         /* Navigation */
         nav {
             background-color: #2c3e50;
             position: fixed;
             width: 100%;
-            top: 0;
+            top: 5px;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
@@ -42,17 +54,19 @@
             color: white;
             text-decoration: none;
             font-size: 1.1rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav ul li a:hover {
             color: #e74c3c;
+            transform: scale(1.1);
         }
 
         /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1516321165247-4aa89a48d322') center/cover;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,6 +78,7 @@
         .hero-content {
             max-width: 800px;
             padding: 2rem;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h1 {
@@ -84,11 +99,12 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .cta-button:hover {
             background-color: #c0392b;
+            transform: translateY(-5px);
         }
 
         /* Section Styles */
@@ -103,6 +119,7 @@
             color: #2c3e50;
             margin-bottom: 2rem;
             text-align: center;
+            animation: fadeIn 1s ease-out;
         }
 
         .content {
@@ -120,16 +137,82 @@
             max-width: 350px;
             flex: 1;
             min-width: 300px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .card h3 {
             color: #e74c3c;
             margin-bottom: 1rem;
+            animation: fadeInText 1s ease-out 0.3s both;
+        }
+
+        .card p {
+            animation: fadeInText 1s ease-out 0.5s both;
+        }
+
+        /* Timeline for Perjalanan */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #2c3e50;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 45%;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .timeline-content:hover h3 {
+            color: white;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
         }
 
         /* Footer */
@@ -139,6 +222,22 @@
             text-align: center;
             padding: 2rem;
             margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         /* Responsive Design */
@@ -160,10 +259,35 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-item:nth-child(odd) {
+                flex-direction: column;
+            }
+
+            .timeline-content {
+                width: 80%;
+                margin-left: 40px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
+
     <!-- Navigation -->
     <nav>
         <ul>
@@ -216,18 +340,27 @@
     <!-- Perjalanan -->
     <section id="perjalanan">
         <h2>Perjalanan Badang</h2>
-        <div class="content">
-            <div class="card">
-                <h3>Cabaran</h3>
-                <p>Badang menghadapi pelbagai cabaran, termasuk pertarungan dengan pahlawan-pahlawan dari kerajaan lain.</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Cabaran</h3>
+                    <p>Badang menghadapi pelbagai cabaran, termasuk pertarungan dengan pahlawan-pahlawan dari kerajaan lain.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Pencapaian</h3>
-                <p>Beliau terkenal dengan kebolehannya mengangkat batu besar dan mengalahkan lawan-lawannya dengan mudah.</p>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Pencapaian</h3>
+                    <p>Beliau terkenal dengan kebolehannya mengangkat batu besar dan mengalahkan lawan-lawannya dengan mudah.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Warisan</h3>
-                <p>Kisah Badang terus diceritakan sehingga kini, menjadi simbol kekuatan dan keberanian rakyat Melayu.</p>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Warisan</h3>
+                    <p>Kisah Badang terus diceritakan sehingga kini, menjadi simbol kekuatan dan keberanian rakyat Melayu.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -249,7 +382,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Kisah Badang. Hak cipta terpelihara.</p>
+        <p>© 2025 Kisah Badang. Hak cipta terpelihara.</p>
     </footer>
 
     <script>
@@ -265,7 +398,15 @@
             });
         });
 
-        // Add animation when sections come into view
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercent + '%';
+        });
+
+        // Section Animation
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -283,6 +424,28 @@
             section.style.transform = 'translateY(50px)';
             section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(section);
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrollPosition = window.scrollY;
+            hero.style.backgroundPositionY = -(scrollPosition * 0.5) + 'px';
+        });
+
+        // Timeline Animation
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const dot = item.querySelector('.timeline-dot');
+                dot.style.transform = 'translateX(-50%) scale(1.5)';
+                dot.style.backgroundColor = '#c0392b';
+            });
+            item.addEventListener('mouseleave', () => {
+                const dot = item.querySelector('.timeline-dot');
+                dot.style.transform = 'translateX(-50%) scale(1)';
+                dot.style.backgroundColor = '#e74c3c';
+            });
         });
     </script>
 </body>
